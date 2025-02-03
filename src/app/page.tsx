@@ -1,43 +1,34 @@
 import React from 'react';
-import Hero from '@/Components/Hero';
-import FeaturedProducts from '@/Components/FeaturedProducts';
-import DiscountProduct from '@/Components/DiscountProduct';
-import LatestProducts from '@/Components/LatestProducts';
-import LatestBlog from '@/Components/LatestBlog'; // Fixed import
- import ShopexOffer from '@/Components/ShopexOffer';
- import UniqueSofa from'@/Components/uniqueSofa';
-import Trending from '@/Components/Trending';
-import TopCategories from'@/Components/TopCategories';
-import  NewsLater from'@/Components/NewsLater';
 
+
+import DiscountProduct from '@/app/components/DiscountProduct';
+import LatestProducts from '@/app/components/LatestProducts';
+import LatestBlog from '@/app/components/LatestBlog';
+import Hero from '@/app/components/Hero';
+import Trending from '@/app/components/Trending';
+import NewsLater from '@/app/components/NewsLater';
+import ShopexOffer from '@/app/components/ShopexOffer';
+import UniqueSofa from '@/app/components/uniqueSofa';
+import TopCategories from '@/app/components/TopCategories';
+import FeaturedProducts from './components/FeaturedProducts';
 
 
 const Home = () => {
   return (
     <div>
-      <Hero /> 
-      <FeaturedProducts />
+    <Hero/>
+      <FeaturedProducts/>
       <LatestProducts/>
       <ShopexOffer/>
       <UniqueSofa/>
       <Trending/>
       <DiscountProduct />
-  <TopCategories/>  
-  < NewsLater/> 
-  <LatestBlog /> 
-  
-  
-
-  
-  
-  
-
+      <TopCategories/>  
+      <NewsLater/> 
+      <LatestBlog /> 
+         
     </div>
-
-
-
-    
   );
 };
 
-export default Home ;
+export default Home;

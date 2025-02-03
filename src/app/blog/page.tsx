@@ -52,6 +52,7 @@ const BlogPage = () => {
     
     
     <div>
+      
       {/* Header Section */}
       <div className="py-16 ml-8 lg:ml-36 space-y-2">
         <h1 className="text-4xl font-bold text-[#001F54]">Blog</h1> {/* Dark blue */}
@@ -112,9 +113,9 @@ const BlogPage = () => {
           <div className="mb-6">
             <h3 className="text-lg font-bold text-[#001F54] mb-2">Categories</h3> {/* Dark blue */}
             <ul className="space-y-2 text-gray-600">
-              <li>Women (21)</li>
-              <li>Men (15)</li>
-              <li>Kids (9)</li>
+              <li>Chair (21)</li>
+              <li>sofa(15)</li>
+              
             </ul>
           </div>
 

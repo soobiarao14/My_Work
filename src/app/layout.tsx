@@ -1,9 +1,20 @@
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
+
+
+
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Topbar from "@/Components/Topbar";
-import Navber from "@/Components/Navber";
-import Footer from "@/Components/Footer";
+import Topbar from "@/app/components/Topbar";
+import Navber from "@/app/components/Navber";
+import Footer from "@/app/components/Footer";
 
 
 
@@ -29,15 +40,41 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Topbar/>
-        <Navber/>
-        {children}
-        <Footer/>
-      </body>
-    </html>
+    // <html lang="en">
+    //   <body
+    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    //   >
+    //     <Topbar/>
+    //     <Navber/>
+    //     {children}
+    //     <Footer/>
+    //   </body>
+    // </html>
+
+<ClerkProvider>
+      <html lang="en">
+        <body>
+          {/* <SignedOut>
+            <SignInButton />
+          </SignedOut> */}
+          {/* <SignedIn>
+            <UserButton />
+          </SignedIn> */}
+
+          <div className='fixed z-50 w-full'>
+          <Topbar/>
+          <Navber/>
+          </div>
+          <div className='p-32'>
+          {children}
+          </div>
+          <Footer/>
+        </body>
+      </html>
+    </ClerkProvider>
+
+
+
+    
   );
 }

@@ -62,13 +62,14 @@
 
 
 
+
 'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 function OrderCompleted() {
-  return (
+  return ( 
     <>
       {/* Main Container for the Page */}
       <div className="min-h-screen bg-gray-100 py-12">
@@ -78,7 +79,7 @@ function OrderCompleted() {
           {/* Order Completed Heading */}
           <h1 className="text-3xl font-bold text-[#1D3178]">Order Completed</h1>
 
-          {/* Tick Mark Image Section */}
+          {/* Tick Mark Image Section */} 
           <div className="flex justify-center">
             {/* Circle container for the tick mark */}
             <div className="w-24 h-24 bg-[#EDEFFB] rounded-full flex justify-center items-center">
@@ -104,7 +105,7 @@ function OrderCompleted() {
           </p>
 
           {/* Continue Shopping Button */}
-          <Link href="/shoplist">
+          <Link href="/shop">
             {/* Button to continue shopping */}
             <button className="bg-[#FB2E86] text-white px-6 py-2 rounded-md text-lg font-medium">
               Continue Shopping
