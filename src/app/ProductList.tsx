@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { client } from "@/sanity/lib/client";  // Sanity 
-import Image from "next/image"; 
+import { client } from "@/sanity/lib/client"; // Sanity
+import Image from "next/image";
 // import { useCart } from "../contexts/CartContext";  import {useCart}from "@/app/CartContext";
 interface Product {
   _id: string;
@@ -15,15 +15,17 @@ interface Product {
   };
 }
 
-const [products, setProducts] = useState<Product[]>([]);
-
 const formatPrice = (price: number) => {
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(price);
 };
 
+
 const ProductList = () => {
-  const { addToCart } = useCart();  // addToCart 
   const [products, setProducts] = useState<Product[]>([]);
+  const { addToCart } = useCart(); // addToCart
   useEffect(() => {
     const fetchProducts = async () => {
       const data = await client.fetch('*[_type == "product"]');
@@ -44,14 +46,16 @@ const ProductList = () => {
             className="w-full h-48 object-cover"
           />
           <h3 className="text-xl font-bold">{product.name}</h3>
-          <p className="text-sm text-gray-500">رنگ: {product.color}, سائز: {product.size}</p>
-          <p className="font-semibold text-[#FB2E86]">{formatPrice(product.price)}</p>
+          <p className="text-sm text-gray-500">
+            رنگ: {product.color}, سائز: {product.size}
+          </p>
+          <p className="font-semibold text-[#FB2E86]">
+            {formatPrice(product.price)}
+          </p>
           <button
-            onClick={() => addToCart({ ...product, quantity: 1 })} 
+            onClick={() => addToCart({ ...product, quantity: 1 })}
             className="mt-4 w-full py-2 bg-[#FB2E86] text-white rounded-md text-sm hover:bg-pink-600"
-          >
-            
-          </button>
+          ></button>
         </div>
       ))}
     </div>
@@ -62,12 +66,12 @@ export default ProductList;
 import { createContext, useContext } from "react";
 
 interface CartItem extends Product {
-    quantity: number;
+  quantity: number;
 }
 
 interface CartContextType {
-    cart: CartItem[];
-    addToCart: (product: CartItem) => void;
+  cart: CartItem[];
+  addToCart: (product: CartItem) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -79,35 +83,34 @@ interface CartProviderProps {
 }
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-    const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItem[]>([]);
 
-    const addToCart = (product: CartItem) => {
-        setCart((prevCart) => {
-            const existingProduct = prevCart.find((item) => item._id === product._id);
-            if (existingProduct) {
-                return prevCart.map((item) =>
-                    item._id === product._id
-                        ? { ...item, quantity: item.quantity + product.quantity }
-                        : item
-                );
-            } else {
-                return [...prevCart, product];
-            }
-        });
-    };
+  const addToCart = (product: CartItem) => {
+    setCart((prevCart) => {
+      const existingProduct = prevCart.find((item) => item._id === product._id);
+      if (existingProduct) {
+        return prevCart.map((item) =>
+          item._id === product._id
+            ? { ...item, quantity: item.quantity + product.quantity }
+            : item
+        );
+      } else {
+        return [...prevCart, product];
+      }
+    });
+  };
 
-    return (
-        <CartContext.Provider value={{ cart, addToCart }}>
-            {children}
-        </CartContext.Provider>
-    );
+  return (
+    <CartContext.Provider value={{ cart, addToCart }}>
+      {children}
+    </CartContext.Provider>
+  );
 };
 
 export const useCart = () => {
-    const context = useContext(CartContext);
-    if (!context) {
-        throw new Error("useCart must be used within a CartProvider");
-    }
-    return context;
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error("useCart must be used within a CartProvider");
+  }
+  return context;
 };
-

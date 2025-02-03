@@ -803,7 +803,7 @@ import { IoLogoVercel } from "react-icons/io5";
 import { client } from "@/sanity/lib/client";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ShopList from "@/app/shop/page";
+
 
 
 
@@ -903,7 +903,7 @@ export default function ProductDetail({
   const addToCart = () => {
     const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
 
-    const exist = existingCart.some((item: any) => item.id === prodID);
+    const exist = existingCart.some((item: { id: string }) => item.id === prodID);
     if (!exist) {
       const newCart = [
         ...existingCart,

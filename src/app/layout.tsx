@@ -1,33 +1,17 @@
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
 } from '@clerk/nextjs'
 
 
 
 
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import Topbar from "@/app/components/Topbar";
 import Navber from "@/app/components/Navber";
 import Footer from "@/app/components/Footer";
 
 
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -65,7 +49,8 @@ export default function RootLayout({
           <Topbar/>
           <Navber/>
           </div>
-          <div className='p-32'>
+          <div className='p-32
+          '>
           {children}
           </div>
           <Footer/>

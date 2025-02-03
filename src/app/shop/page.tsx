@@ -87,11 +87,12 @@ const ShopList = async () => {
           </div>
         </div>
       </div>
+   
 
       {/* Product List */}
       <div className="p-8">
         <div className="space-y-6">
-          {products.map((product:any) => (
+          {products.map((product: { _id: string; name: string; image: { asset: { url: string } }; price: number; oldPrice?: number; description: string; rating: number; colors: string[] }) => (
             <Link href={`/products/${product._id}`} key={product._id}>
             <div
               className="flex flex-col lg:flex-row bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"

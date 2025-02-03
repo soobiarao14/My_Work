@@ -46,7 +46,7 @@
 // } 
 
 // export default Topber;
-import { ChevronDown, MailIcon, PhoneCall, ShoppingCartIcon } from 'lucide-react';
+import { ChevronDown, MailIcon, PhoneCall} from 'lucide-react';
 
 import Link from 'next/link'; // Importing Link from Next.js
 import { useState, useEffect } from 'react';

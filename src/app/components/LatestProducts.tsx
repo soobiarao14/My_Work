@@ -255,6 +255,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
+import Image from "next/image";
 
 // Define TypeScript interface for product data
 interface Product {
@@ -315,7 +316,7 @@ const LatestProducts: React.FC = () => {
       {/* Product Grid */}
       <div className="w-full max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {products.map((product) => (
-          <Link href={`/products/${product._id}`}><div key={product._id} className="relative group">
+          <Link href={`/products/${product._id}`} key={product._id} ><div  className="relative group">
             {/* Product Image */}
             <div className="w-full bg-gray-200 flex justify-center items-center relative overflow-hidden h-[300px] transition-all duration-300 group-hover:bg-white">
               {/* Sale Tag */}
@@ -324,7 +325,7 @@ const LatestProducts: React.FC = () => {
                   Sale
                 </span>
               {/* )} */}
-              <img src={product.img} alt={product.name} className="object-" />
+              <Image src={product.img} alt={product.name} height={200} width={200} className="object-" />
           <div>
               </div>
             </div>

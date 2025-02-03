@@ -1,22 +1,23 @@
+import { defineField, defineType } from "sanity";
 
 
-export default {
+export const productSchema = defineType({
     name: 'product',
     type: 'document',
     title: 'Product',
     fields: [
-      {
+      defineField({
         name: 'name',
         type: 'string',
         title: 'Name',
-        validation: (Rule: any) => Rule.required().error('Name is required'),
-      },
+        validation: (Rule) => Rule.required().error('Name is required'),
+      }),
 
 {
 name:"slug",
 type:"slug",
 title:"Slug",
-Option:{
+options:{
   source:"name"}
 },
 
@@ -29,38 +30,38 @@ Option:{
         },
         description: 'Upload an image of the product.',
       },
-      {
+      defineField({
         name: 'price',
         type: 'string',
         title: 'Price',
-        validation: (Rule: any) => Rule.required().error('Price is required'),
-      },
-      {
+        validation: (Rule) => Rule.required().error('Price is required'),
+      }),
+      defineField({
         name: 'description',
         type: 'text',
         title: 'Description',
-        validation: (Rule: any) =>
+        validation: (Rule) =>
           Rule.max(150).warning('Keep the description under 150 characters.'),
-      },
-      {
+      }),
+      defineField({
         name: 'discountPercentage',
         type: 'number',
         title: 'Discount Percentage',
-        validation: (Rule: any) =>
+        validation: (Rule) =>
           Rule.min(0).max(100).warning('Discount must be between 0 and 100.'),
-      },
+      }),
       {
         name: 'isFeaturedProduct',
         type: 'boolean',
         title: 'Is Featured Product',
       },
-      {
+      defineField({
         name: 'stockLevel',
         type: 'number',
         title: 'Stock Level',
-        validation: (Rule: any) => Rule.min(0).error('Stock level must be a positive number.'),
-      },
-      {
+        validation: (Rule) => Rule.min(0).error('Stock level must be a positive number.'),
+      }),
+      defineField({
         name: 'category',
         type: 'string',
         title: 'Category',
@@ -70,7 +71,7 @@ Option:{
             { title: 'Sofa', value: 'Sofa' },
           ],
         },
-        validation: (Rule: any) => Rule.required().error('Category is required'),
-      },
+        validation: (Rule) => Rule.required().error('Category is required'),
+      }),
     ],
-  };
+  });
