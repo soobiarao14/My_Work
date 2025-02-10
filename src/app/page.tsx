@@ -11,7 +11,7 @@ import ShopexOffer from '@/app/components/ShopexOffer';
 import UniqueSofa from '@/app/components/uniqueSofa';
 import TopCategories from '@/app/components/TopCategories';
 import FeaturedProducts from './components/FeaturedProducts';
-
+// import SearchBar from './components/searchBar';
 
 const Home = () => {
   return (
@@ -25,7 +25,9 @@ const Home = () => {
       <DiscountProduct />
       <TopCategories/>  
       <NewsLater/> 
-      <LatestBlog /> 
+      <LatestBlog />
+      {/* <SearchBar /> */}
+      
          
     </div>
   );

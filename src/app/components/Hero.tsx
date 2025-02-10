@@ -59,7 +59,7 @@ function Hero() {
             className="object-contain"
           />
         </div>
-      </div>
+      </div> 
 
       {/* Center Column: Content (Title, Description, Button) */}
       <div className="md:w-1/3 max-w-lg text-center md:text-left flex flex-col justify-center">

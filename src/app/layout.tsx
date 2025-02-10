@@ -49,7 +49,7 @@ export default function RootLayout({
           <Topbar/>
           <Navber/>
           </div>
-          <div className='p-32
+          <div className='lg:p-32 md:p-20 p-4
           '>
           {children}
           </div>

@@ -1,17 +1,13 @@
 
 
-
-
-
-
-
-
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faHeart, faShoppingCart, faBars } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import SearchBar from "./SearchBar"
+
 
 function Navbar() {
   const [open, setOpen] = useState(false); // For mobile menu toggle
@@ -120,19 +116,25 @@ function Navbar() {
 
 
           {/* Right Section */}
-          <div className="flex gap-x-4 items-center">
+
+<SearchBar/>
+
+
+
+          {/* <div className="flex gap-x-4 items-center"> */}
             {/* Search Bar */}
 
             
         
-            <div className="hidden lg:flex items-center bg-gray-200 rounded-md p-2">
-              <input
+            {/* <div className="hidden lg:flex items-center bg-gray-200 rounded-md p-2"> */}
+              {/* <input
                 className="w-full p-1 rounded-md bg-gray-200 outline-none"
                 type="search"
                 placeholder="Search..."
               />
-              <FontAwesomeIcon icon={faSearch} className="ml-2 text-gray-600" />
-            </div>
+              <FontAwesomeIcon icon={faSearch} className="ml-2 text-gray-600" /> */}
+               
+            {/* </div> */}
 
             {/* Icons */}
             <div className="hidden lg:flex items-center gap-x-4">
@@ -169,7 +171,7 @@ function Navbar() {
             </button>
           </div>
         </div>
-      </div>
+      {/* </div> */}
       
     </main>
   );
