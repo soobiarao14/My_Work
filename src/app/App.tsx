@@ -8,8 +8,8 @@ function App() {
   return (
     <CartProvider>
       <div>
-        <ProductList />  {/* پروڈکٹس کی لسٹ */}
-        <Cart />  {/* کارٹ کمپوننٹ */}
+        <ProductList />
+        <Cart />  
       </div>
     </CartProvider>
   );

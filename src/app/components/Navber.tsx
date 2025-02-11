@@ -1,12 +1,12 @@
 
-
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faHeart, faShoppingCart, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faShoppingCart, faBars } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-import SearchBar from "./SearchBar"
+import SearchBar from './SearchBar';
+
 
 
 function Navbar() {

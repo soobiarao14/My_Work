@@ -2,6 +2,7 @@
 // import Hero2 from "../components/Hero2";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ShoppingCart() {
     
@@ -88,9 +89,11 @@ export default function ShoppingCart() {
                             <div className="flex justify-end">
                             <button className="bg-black h-5 w-5 rounded-full absolute text-white text-lg items-center justify-center flex font-bold" onClick={()=>RemoveItem(item.id)}>x</button>
                             </div>
-                      <img
+                      <Image
                         src={item.pic}
                         alt={item?.name}
+                        width={112}
+                        height={112}
                         className="w-28 h-28 object-cover p-1"
                       />
                       </div>
